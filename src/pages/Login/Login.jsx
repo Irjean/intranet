@@ -7,7 +7,7 @@ function Login() {
     const navigate = useNavigate();
 
   return (
-    <div>
+    <div id='login-page'>
         <form action="POST">
             <input id='email' type="text" />
             <input id="password" type="password" />
