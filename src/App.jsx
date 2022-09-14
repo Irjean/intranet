@@ -15,7 +15,7 @@ function App() {
             <nav>
               <ul>
                 <Link to="/"><li>Liste</li></Link>
-                <Link to="/collaborateurs/ajouter"><li className={`add-employee-btn ${isAdmin ? "show" : ""}`}>Ajouter</li></Link>
+                <Link to="/collaborateurs/ajouter"><li className={`add-employee-btn`}>Ajouter</li></Link>
               </ul>
             </nav>
             <div>
