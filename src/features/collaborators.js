@@ -14,9 +14,10 @@ const collaboratorSlice = createSlice({
                 ...state,
                 collaborators: action.payload
             }
+            return state
         },
         addCollaborator(state, action) {
-
+            
         },
         removeCollaborator(state, action) {
 
