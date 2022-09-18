@@ -38,6 +38,10 @@ header{
   font-size: 1.5rem;
 }
 
+nav{
+  display: none;
+}
+
 nav > ul {
   display: flex;
   gap: 30px;
@@ -61,10 +65,42 @@ a:link, a:visited, a:hover, a:active{
   color: white;
 }
 
+.admin-link{
+  display: none;
+}
+
+.disconnected-button{
+  display: none;
+  background-color: #5f537a;
+  padding: 5px 10px 5px 10px;
+  border-radius: 5px;
+}
+
+.disconnected-button:hover{
+  background-color: #6d6190;
+  cursor: pointer;
+}
+
 .add-employee-btn{
   display: none;
 }
 
 .show{
   display: flex;
+}
+
+main{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 590px) {
+  header{
+    flex-direction: column;
+    height: 15vh;
+    padding: 10px 0 10px 0;
+    justify-content: center;
+  }
 }

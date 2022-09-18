@@ -1,12 +1,14 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom'
 import './App.css'
 import Login from './pages/Login/Login'
 import EmployeeList from './pages/EmployeeList/EmployeeList'
 import RandomEmployee from './pages/RandomEmployee/RandomEmployee'
+import { deconnectUser } from './services/localStorage.service'
+import Redirect from './pages/Redirect/Redirect'
+import AddEmployee from './pages/AddEmployee/AddEmployee'
 
 function App() { 
+  let connected = localStorage.getItem("user") ? true : false;
   
   return (
     <div className="App">
@@ -14,23 +16,26 @@ function App() {
         <header>
           <h1>Intranet</h1>
           <div className='nav-bar'>
-            <nav>
+            <nav className={connected ? "show" : ""}>
               <ul>
                 <Link to="/collaborateurs/list"><li>Liste</li></Link>
                 <Link to="/collaborateurs/ajouter"><li className={`add-employee-btn`}>Ajouter</li></Link>
               </ul>
             </nav>
-            <div>
-              <img src="" alt="" />
-              <span>Deconnexion</span>
-            </div>
+              <span className={`disconnected-button ${connected ? "show" : ""}`} onClick={() => {
+                deconnectUser();
+              }}>Deconnexion</span>
           </div>
         </header>
-        <Routes>
-          <Route path="/login" element={<Login/>} />
-          <Route path="/collaborateurs/" element={<RandomEmployee/>} />
-          <Route path="/collaborateurs/list" element={<EmployeeList/>} />
-        </Routes>
+        <main>
+          <Routes>
+            <Route path='/' element={<Redirect />} />
+            <Route path="/login" element={<Login/>} />
+            <Route path="/collaborateurs/" element={<RandomEmployee/>} />
+            <Route path="/collaborateurs/list" element={<EmployeeList/>} />
+            <Route path='/collaborateurs/add' element={<AddEmployee />} />
+          </Routes>
+        </main>
       </Router>
     </div>
   )
