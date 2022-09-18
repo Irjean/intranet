@@ -4,8 +4,10 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import './App.css'
 import Login from './pages/Login/Login'
 import EmployeeList from './pages/EmployeeList/EmployeeList'
+import RandomEmployee from './pages/RandomEmployee/RandomEmployee'
 
 function App() { 
+  
   return (
     <div className="App">
       <Router>
@@ -14,7 +16,7 @@ function App() {
           <div className='nav-bar'>
             <nav>
               <ul>
-                <Link to="/"><li>Liste</li></Link>
+                <Link to="/collaborateurs/list"><li>Liste</li></Link>
                 <Link to="/collaborateurs/ajouter"><li className={`add-employee-btn`}>Ajouter</li></Link>
               </ul>
             </nav>
@@ -26,6 +28,7 @@ function App() {
         </header>
         <Routes>
           <Route path="/login" element={<Login/>} />
+          <Route path="/collaborateurs/" element={<RandomEmployee/>} />
           <Route path="/collaborateurs/list" element={<EmployeeList/>} />
         </Routes>
       </Router>
