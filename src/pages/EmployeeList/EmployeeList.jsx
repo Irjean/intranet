@@ -17,6 +17,10 @@ function EmployeeList() {
   const [filter, setFilter] = useState("name");
 
   useEffect(() => {
+    if(!localStorage.getItem("token")){
+      navigate("/login");
+      return
+    }
     dispatch(setCollaborator(collabList));
     filterCategory("");
   }, [collabList])

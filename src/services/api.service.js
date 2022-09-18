@@ -28,11 +28,6 @@ export async function login(email, password, dispatch) {
 export function getCollaborators(navigate) {
     let token = localStorage.getItem("token");
 
-    if(!token){
-      navigate("/login");
-      return
-    }
-
     const [collabList, setCollabList] = useState([]);
 
     useEffect(() => {

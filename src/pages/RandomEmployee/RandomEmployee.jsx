@@ -1,9 +1,17 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from "react-router-dom"
 import EmployeeCard from '../../components/EmployeeCard/EmployeeCard';
 import "./RandomEmployee.css"
 
 function RandomEmployee() {
+  const navigate = useNavigate();
     const [randEmp, setRandEmp] = useState([]);
+
+    useEffect(() => {
+      if(!localStorage.getItem("token")){
+        navigate("/login");
+      }
+    }, [])
   
   //Allows to fetch the random collaborator and set it in the state
   function getRandomCollab() {
