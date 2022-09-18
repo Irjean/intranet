@@ -5,6 +5,7 @@
     align-items: center;
     justify-content: center;
     width: 30%;
+    min-width: 300px;
     height: fit-content;
     background-color: #303030;
     margin-bottom: 50px;
@@ -50,4 +51,10 @@
     display: flex;
 
     gap: 10px;
+}
+
+@media screen and (max-width: 1350px) {
+    .employee-card{
+        flex-direction: column;
+    }
 }
