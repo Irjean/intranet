@@ -11,10 +11,9 @@ export async function login(email, password, navigate) {
         "password": password
     })
         .then((res) => {
-            console.log(res.data);
             saveToken(res.data.token);
             storeUser(res.data.user);
-            navigate("/collaborateurs/list");
+            navigate("/collaborateurs/");
         })
 
         .catch((err) => {
@@ -48,4 +47,17 @@ export function getCollaborators() {
     }, [])
 
     return collabList
+}
+
+export async function getRandomEmployee () {
+
+            const { data } = await axios.get("/api/collaborateurs/random", {
+                headers: {
+                    "Authorization": `Bearer ${localStorage.getItem("token")}`
+                }
+            })
+            .then((res) => {
+                console.log(res.data)
+                return res.data
+            })
 }
