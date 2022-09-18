@@ -25,7 +25,7 @@ export async function login(email, password, dispatch) {
 }
 
 //Returns an array with all the collaborators
-export function getCollaborators(navigate) {
+export function getCollaborators() {
     let token = localStorage.getItem("token");
 
     const [collabList, setCollabList] = useState([]);
