@@ -4,4 +4,16 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 50px;
+}
+
+#random-employee-container > h3{
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+@media screen and (max-width: 530px) {
+    #random-employee-container > h3{
+        font-size: .8rem;
+    }
 }
